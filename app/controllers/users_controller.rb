@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+  # before_action :require_user_logged_in, only: [:create]
   
   # def index
   #   @users = User.order(id: :desc).page(params[:page]).per(15)
@@ -24,10 +24,11 @@ class UsersController < ApplicationController
       render :new
     end
   end
-end
-
-private
+  
+  private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+end
